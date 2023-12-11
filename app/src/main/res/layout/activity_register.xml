@@ -19,17 +19,23 @@
         android:textColor="@color/white"
         android:text="Ready To Join The Squad?"/>
     <EditText
+        android:id="@+id/editUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#FFFFFF"
+        android:hint="Username"/>
+    <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#FFFFFF"
         android:hint="Name"/>
     <EditText
-        android:id="@+id/editUsername"
+        android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#FFFFFF"
-        android:hint="Username"/>
+        android:hint="Password"
+        android:textColorHint="#FFFFFF"/>
     <EditText
         android:id="@+id/editAge"
         android:layout_width="match_parent"
@@ -65,4 +71,16 @@
         android:layout_height="wrap_content"
         android:background="#FFC300"
         android:text="Register"/>
+    <TextView
+        android:layout_width= "wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have account? Then Login Now"
+        android:textColor="#FFFFFF"/>
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"/>
+
+
 </LinearLayout>
