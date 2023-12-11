@@ -5,31 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#1E2328"
+    android:background="@drawable/LandingPage"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center|bottom"
+        android:paddingBottom="40pt">
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign in to your account"
-        android:textSize="30dp"/>
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:paddingBottom="40dp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtEmail"
-        android:hint="Email"/>
+        android:id="@+id/logEmail"
+        android:hint="Email"
+        android:paddingBottom="8dp"
+        android:textColorHint="@color/white"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtPassword"
-        android:hint="Password"/>
+        android:id="@+id/logPassword"
+        android:hint="Password"
+        android:paddingBottom="8dp"
+        android:textColorHint="@color/white"/>
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
         android:text="Login"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="Don't have an account? Register here"
+        android:textColor="@color/white"
+        android:clickable="true"/>
+    </LinearLayout>
 
 </LinearLayout>
