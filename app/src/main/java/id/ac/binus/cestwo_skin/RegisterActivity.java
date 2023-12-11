@@ -43,16 +43,13 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = editUsername.getText().toString();
                 String name = editName.getText().toString();
-                String password = editPassword.getText().toString();
-                String age = editAge.getText().toString();
                 String email = editEmail.getText().toString();
-                String phone = editPhone.getText().toString();
+                String password = editPassword.getText().toString();
 
-                boolean isInsert = db.isInsertUser(username, name, password, age, email, phone);
+                boolean isInsert = db.isInsertUser(name, password, email);
                 if(isInsert){
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else{
                     Toast.makeText(RegisterActivity.this, "User failed to be created", Toast.LENGTH_LONG).show();
@@ -63,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
