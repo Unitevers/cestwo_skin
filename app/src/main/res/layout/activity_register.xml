@@ -5,13 +5,19 @@
     android:background="#1E2328"
     android:orientation="vertical"
     android:padding="20dp">
-    
-    <Button
+
+    <ImageButton
         android:id="@+id/button_back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="40dp"
+        android:maxHeight="40dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#FFC300"
         android:background="@drawable/round_button"
-        android:text="Back"/>
+        android:src="@drawable/backbutton2"
+        />
     <TextView
         android:textSize="25dp"
         android:layout_width="wrap_content"
@@ -24,64 +30,67 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#FFFFFF"
+        android:textColor="@color/white"
         android:hint="Username"/>
     <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#FFFFFF"
+        android:textColor="@color/white"
         android:hint="Name"/>
     <EditText
         android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:textColor="@color/white"
         android:textColorHint="#FFFFFF"/>
     <EditText
         android:id="@+id/editAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#FFFFFF"
+        android:textColor="@color/white"
         android:hint="Age"/>
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#FFFFFF"
+        android:textColor="@color/white"
         android:hint="Email"/>
     <EditText
         android:id="@+id/editPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="#FFFFFF"
+        android:textColor="@color/white"
         android:hint="Phone Number"/>
     <CheckBox
         android:id="@+id/checkTnC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onCheckBoxClicked"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:onClick="onCheckBoxClicked"
+        android:text="I have agreed to all Terms and Condition"
         android:textColor="@color/white"
-        android:text="I have agreed to all Terms and Condition"/>
+        />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFC300"
+        android:layout_gravity="center"
+        android:backgroundTint="#FFC300"
+        android:textColor="@color/black"
         android:text="Register"/>
     <TextView
+        android:id="@+id/login"
         android:layout_width= "wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Already have account? Then Login Now"
         android:textColor="#FFFFFF"/>
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"/>
 
 
 </LinearLayout>

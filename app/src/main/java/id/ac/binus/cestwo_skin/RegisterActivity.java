@@ -2,12 +2,21 @@ package id.ac.binus.cestwo_skin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -18,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText editAge;
     EditText editEmail;
     EditText editPhone;
-    Button button_back;
+    ImageButton button_back;
     Button registerButton;
     Button loginButton;
     CheckBox checkTnC;
@@ -39,6 +48,27 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
         loginButton = findViewById(R.id.loginButton);
         checkTnC = findViewById(R.id.checkTnC);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CheckBox checkBox = findViewById(R.id.checkTnC);
+
+        checkBox.setOnClickListener(this);
+//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if(isChecked)
+//                    checkBox.setChecked(true);
+////                    Toast.makeText(RegisterActivity.this, "Checked", Toast.LENGTH_SHORT).show();
+////                else
+////                    Toast.makeText(RegisterActivity.this, "Not Checked", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,13 +87,23 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        TextView textView = findViewById(R.id.login);
+
+        String text = "Already have account? Then Login Now";
+
+        SpannableString ss = new SpannableString(text);
+
+        ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
-            public void onClick(View view) {
+            public void onClick(@NonNull View widget) {
                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent);
             }
-        });
+        };
+        ss.setSpan(clickableSpan, 27, 32, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView.setText(ss);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+
 
     }
 }
