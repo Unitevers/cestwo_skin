@@ -46,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         button_back = findViewById(R.id.button_back);
         registerButton = findViewById(R.id.registerButton);
-        loginButton = findViewById(R.id.loginButton);
         checkTnC = findViewById(R.id.checkTnC);
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,17 +57,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         CheckBox checkBox = findViewById(R.id.checkTnC);
 
-        checkBox.setOnClickListener(this);
-//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked)
-//                    checkBox.setChecked(true);
-////                    Toast.makeText(RegisterActivity.this, "Checked", Toast.LENGTH_SHORT).show();
-////                else
-////                    Toast.makeText(RegisterActivity.this, "Not Checked", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked)
+                    Toast.makeText(RegisterActivity.this,"agreed",Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(RegisterActivity.this,"not Agreed",Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,4 +104,16 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+
+//    public void onCheckboxClicked(View view){
+//        boolean checked = ((CheckBox) view).isChecked();
+//        switch(view.getId()){
+//            case R.id.checkTnC:
+//                if(checked)
+//                    Toast.makeText(this, "agreed", Toast.LENGTH_SHORT).show();
+//                else
+//                    Toast.makeText(this, "not agreed", Toast.LENGTH_SHORT).show();
+//                break;
+//        }
+//    }
 }
