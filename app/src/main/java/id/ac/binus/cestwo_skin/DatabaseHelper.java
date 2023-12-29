@@ -19,6 +19,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "name text PRIMARY KEY," +
                 "email text," +
                 "password text)");
+
+        sqLiteDatabase.execSQL("CREATE TABLE orderItem("+
+                "itemName text PRIMARY KEY," +
+                "itemPrice text)");
     }
 
     @Override
@@ -34,6 +38,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         content.put("password", password);
 
         long result =db.insert("user", null, content);
+        if(result == -1){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isInsertOrder(String itemName, String itemPrice){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues content = new ContentValues();
+        content.put("itemName", itemName);
+        content.put("itemPrice", itemPrice);
+
+        long result = db.insert("orderItem", null, content);
         if(result == -1){
             return false;
         }

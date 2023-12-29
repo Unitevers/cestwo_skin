@@ -8,25 +8,36 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <ImageButton
-        android:id="@+id/button_back"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxWidth="40dp"
-        android:maxHeight="40dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#FFC300"
-        android:background="@drawable/round_button"
-        android:src="@drawable/backbutton2"
-        />
-    <TextView
-        android:textSize="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:text="Ready To Join The Squad?"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="40dp"
+            android:maxHeight="40dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#FFC300"
+            android:background="@drawable/round_button"
+            android:src="@drawable/backbutton2"
+            />
+        <TextView
+            android:textSize="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginLeft="15dp"
+            android:text="Ready To Join The Squad?"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
     <EditText
         android:id="@+id/editUsername"
         android:layout_width="match_parent"
