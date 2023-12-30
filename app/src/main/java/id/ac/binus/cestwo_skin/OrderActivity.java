@@ -34,6 +34,24 @@ public class OrderActivity extends AppCompatActivity {
         buyBtn = findViewById(R.id.buyBtn);
         placeBtn = findViewById(R.id.placeBtn);
 
+
+
+        sellBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sellBtn.setBackgroundResource(R.drawable.button_color_change);
+                buyBtn.setBackgroundResource(R.drawable.button_color_change1);
+            }
+        });
+
+        buyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buyBtn.setBackgroundResource(R.drawable.button_color_change);
+                sellBtn.setBackgroundResource(R.drawable.button_color_change1);
+            }
+        });
+
         placeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

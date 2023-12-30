@@ -69,13 +69,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buyBtn"
-            android:background="#F16868"
+            android:background="@drawable/button_color_change"
             android:text="Want to Sell"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sellBtn"
-            android:background="@color/white"
+            android:background="@drawable/button_color_change1"
             android:textColor="@color/black"
             android:text="Want to Buy"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
