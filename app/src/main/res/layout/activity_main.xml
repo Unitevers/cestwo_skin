@@ -28,8 +28,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/logEmail"
-        android:hint="Email"
+        android:id="@+id/logName"
+        android:hint="Name"
         android:paddingBottom="8dp"
         android:textColorHint="@color/white"
         android:textColor="@color/white"/>

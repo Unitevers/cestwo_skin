@@ -57,15 +57,15 @@ public class OrderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String itemName = editItemName.getText().toString();
                 String itemPrice = editItemPrice.getText().toString();
-                boolean isInsert = db.isInsertOrder(itemName, itemPrice);
+//                boolean isInsert = db.isInsertOrder(itemName, itemPrice);
 
-                if(isInsert){
-                    Intent intent = new Intent(OrderActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                }
-                else{
-                    Toast.makeText(OrderActivity.this, "Create Order Failed", Toast.LENGTH_SHORT).show();
-                }
+//                if(isInsert){
+//                    Intent intent = new Intent(OrderActivity.this, HomeActivity.class);
+//                    startActivity(intent);
+//                }
+//                else{
+//                    Toast.makeText(OrderActivity.this, "Create Order Failed", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }

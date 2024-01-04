@@ -14,15 +14,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE user("+
-                "name text PRIMARY KEY," +
-                "email text," +
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE user (" +
+                "nama text PRIMARY KEY," +
                 "password text)");
-
-//        sqLiteDatabase.execSQL("CREATE TABLE orderItem("+
-//                "itemName text PRIMARY KEY," +
-//                "itemPrice text)");
     }
 
     @Override
@@ -30,11 +25,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean isInsertUser(String name, String email, String password){
+    public boolean isInsertUser(String name, String password){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues content= new ContentValues();
         content.put("name", name);
-        content.put("email", email);
         content.put("password", password);
 
         long result =db.insert("user", null, content);
@@ -57,9 +51,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        return true;
 //    }
 
-    public Cursor getPenggunaByEmail(String){
+    public boolean checkname(String name){
         SQLiteDatabase db =this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM user", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE name = ?", new String[]{name});
+        if(cursor.getCount() > 0){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checknamepassword(String name, String password){
+        SQLiteDatabase db =this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE name = ? AND password = ?", new String[]{name, password});
+        if(cursor.getCount() > 0){
+            return true;
+        }
+        return false;
+    }
+
+    public Cursor getUserByName(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from user WHERE name = ?", new String[]{name});
         return cursor;
     }
 

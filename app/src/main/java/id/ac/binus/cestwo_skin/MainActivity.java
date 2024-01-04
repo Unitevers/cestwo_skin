@@ -14,10 +14,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText editEmail;
+    EditText editName;
     EditText editPassword;
     Button loginButton;
     DatabaseHelper db;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editEmail = findViewById(R.id.logEmail);
+        editName = findViewById(R.id.logName);
         editPassword = findViewById(R.id.logPassword);
         loginButton = findViewById(R.id.loginButton);
 
@@ -50,11 +51,24 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String email = editEmail.getText().toString();
+            public void onClick(View view) {
+                String name = editName.getText().toString();
                 String password = editPassword.getText().toString();
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(intent);
+
+                if(name.equals("") || password.equals("")) {
+                    Toast.makeText(MainActivity.this, "Must fill all the fields!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    boolean checkuser = db.checknamepassword(name, password);
+                    if(checkuser){
+                        Toast.makeText(MainActivity.this, "You have succesfully logged in", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(MainActivity.this, "User does not exist!", Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
     }
