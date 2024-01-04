@@ -22,11 +22,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText editName;
-    EditText editUsername;
-    EditText editPassword;
-    EditText editAge;
     EditText editEmail;
-    EditText editPhone;
+    EditText editPassword;
+    EditText editCPassword;
     ImageButton button_back;
     Button registerButton;
     Button loginButton;
@@ -38,11 +36,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         editName =findViewById(R.id.editName);
-        editUsername = findViewById(R.id.editUsername);
-        editPassword = findViewById(R.id.editPassword);
-        editAge = findViewById(R.id.editAge);
         editEmail = findViewById(R.id.editEmail);
-        editPhone = findViewById(R.id.editPhone);
+        editPassword = findViewById(R.id.editPassword);
+        editCPassword = findViewById(R.id.editCPassword);
 
         button_back = findViewById(R.id.button_back);
         registerButton = findViewById(R.id.registerButton);
@@ -74,13 +70,17 @@ public class RegisterActivity extends AppCompatActivity {
                 String name = editName.getText().toString();
                 String email = editEmail.getText().toString();
                 String password = editPassword.getText().toString();
-
-                boolean isInsert = db.isInsertUser(name, password, email);
-                if(isInsert){
-                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                    startActivity(intent);
-                } else{
-                    Toast.makeText(RegisterActivity.this, "User failed to be created", Toast.LENGTH_LONG).show();
+                String cpassword = editCPassword.getText().toString();
+                if(password.equals(cpassword)) {
+                    boolean isInsert = db.isInsertUser(name, password, email);
+                    if(isInsert){
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    } else{
+                        Toast.makeText(RegisterActivity.this, "User failed to be created", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(RegisterActivity.this, "Password and confirm password must be the same!", Toast.LENGTH_LONG).show();
                 }
             }
         });

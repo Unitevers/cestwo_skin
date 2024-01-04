@@ -20,9 +20,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "email text," +
                 "password text)");
 
-        sqLiteDatabase.execSQL("CREATE TABLE orderItem("+
-                "itemName text PRIMARY KEY," +
-                "itemPrice text)");
+//        sqLiteDatabase.execSQL("CREATE TABLE orderItem("+
+//                "itemName text PRIMARY KEY," +
+//                "itemPrice text)");
     }
 
     @Override
@@ -44,43 +44,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean isInsertOrder(String itemName, String itemPrice){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues content = new ContentValues();
-        content.put("itemName", itemName);
-        content.put("itemPrice", itemPrice);
+//    public boolean isInsertOrder(String itemName, String itemPrice){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues content = new ContentValues();
+//        content.put("itemName", itemName);
+//        content.put("itemPrice", itemPrice);
+//
+//        long result = db.insert("orderItem", null, content);
+//        if(result == -1){
+//            return false;
+//        }
+//        return true;
+//    }
 
-        long result = db.insert("orderItem", null, content);
-        if(result == -1){
-            return false;
-        }
-        return true;
-    }
-
-    public Cursor getPengguna(){
+    public Cursor getPenggunaByEmail(String){
         SQLiteDatabase db =this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM user", null);
         return cursor;
     }
 
-    public boolean updateData(String name, String password, String email){
-        SQLiteDatabase db =this.getWritableDatabase();
-
-        ContentValues contentValues =new ContentValues();
-        contentValues.put("name", name);
-        contentValues.put("email", email);
-        contentValues.put("password", password);
-
-        Cursor cursor =db.rawQuery("SELECT * FROM user where name = ?", new String[]{name});
-        if(cursor.getCount() > 0){
-            long result = db.update("user", contentValues, "name = ?", new String[] {name});
-            if(result <= 0)
-                return false;
-            else
-                return true;
-        }
-        return false;
-    }
+//    public boolean updateData(String name, String password, String email){
+//        SQLiteDatabase db =this.getWritableDatabase();
+//
+//        ContentValues contentValues =new ContentValues();
+//        contentValues.put("name", name);
+//        contentValues.put("email", email);
+//        contentValues.put("password", password);
+//
+//        Cursor cursor =db.rawQuery("SELECT * FROM user where name = ?", new String[]{name});
+//        if(cursor.getCount() > 0){
+//            long result = db.update("user", contentValues, "name = ?", new String[] {name});
+//            if(result <= 0)
+//                return false;
+//            else
+//                return true;
+//        }
+//        return false;
+//    }
 
     public boolean deleteData(String name){
         SQLiteDatabase db = this.getWritableDatabase();

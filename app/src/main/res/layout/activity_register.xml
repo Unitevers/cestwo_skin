@@ -8,11 +8,12 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:paddingBottom="10dp">
 
         <ImageButton
             android:id="@+id/button_back"
@@ -35,16 +36,9 @@
             android:layout_marginLeft="15dp"
             android:text="Ready To Join The Squad?"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
 
-    <EditText
-        android:id="@+id/editUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#FFFFFF"
-        android:textColor="@color/white"
-        android:hint="Username"/>
     <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
@@ -53,20 +47,6 @@
         android:textColor="@color/white"
         android:hint="Name"/>
     <EditText
-        android:id="@+id/editPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"/>
-    <EditText
-        android:id="@+id/editAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="#FFFFFF"
-        android:textColor="@color/white"
-        android:hint="Age"/>
-    <EditText
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,12 +54,19 @@
         android:textColor="@color/white"
         android:hint="Email"/>
     <EditText
-        android:id="@+id/editPhone"
+        android:id="@+id/editPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#FFFFFF"
+        android:hint="Password"
         android:textColor="@color/white"
-        android:hint="Phone Number"/>
+        android:textColorHint="#FFFFFF"/>
+    <EditText
+        android:id="@+id/editCPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"/>
     <CheckBox
         android:id="@+id/checkTnC"
         android:layout_width="wrap_content"
