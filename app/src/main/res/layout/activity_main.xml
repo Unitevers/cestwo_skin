@@ -12,52 +12,51 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center|bottom"
-        android:paddingBottom="40pt">
+        android:orientation="vertical"
+        android:layout_marginBottom="20pt">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign in to your account"
-        android:layout_gravity="center"
-        android:textSize="30dp"
-        android:paddingBottom="40dp"
-        android:textColor="@color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:text="Sign in to your account"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/logName"
-        android:hint="Name"
-        android:paddingBottom="8dp"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        <EditText
+            android:id="@+id/logName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/logPassword"
-        android:hint="Password"
-        android:paddingBottom="8dp"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"/>
+        <EditText
+            android:id="@+id/logPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Password"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:text="Login"/>
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFC300"
+            android:text="Login" />
 
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:text="Don't have an account? Register here"
-        android:textColor="@color/white"
-        android:clickable="true"/>
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:paddingTop="5dp"
+            android:text="Don't have an account? Register here"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </LinearLayout>

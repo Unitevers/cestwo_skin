@@ -16,8 +16,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE user (" +
-                "nama text PRIMARY KEY," +
+                "name text PRIMARY KEY," +
                 "password text)");
+
+        db.execSQL("CREATE TABLE orders (" +
+                "id integer PRIMARY KEY AUTOINCREMENT," +
+                "name text," +
+                "price text," +
+                "ordertype text," +
+                "poster text)");
     }
 
     @Override
@@ -38,18 +45,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-//    public boolean isInsertOrder(String itemName, String itemPrice){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues content = new ContentValues();
-//        content.put("itemName", itemName);
-//        content.put("itemPrice", itemPrice);
-//
-//        long result = db.insert("orderItem", null, content);
-//        if(result == -1){
-//            return false;
-//        }
-//        return true;
-//    }
+    public boolean isInsertOrder(String itemName, String itemPrice, String ordertype, String poster){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues content = new ContentValues();
+        content.put("id", 0);
+        content.put("name", itemName);
+        content.put("price", itemPrice);
+        content.put("ordertype", ordertype);
+        content.put("poster", poster);
+
+        long result = db.insert("orders", null, content);
+        if(result == -1){
+            return false;
+        }
+        return true;
+    }
 
     public boolean checkname(String name){
         SQLiteDatabase db =this.getWritableDatabase();
@@ -67,6 +77,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
         return false;
+    }
+
+    public Cursor getOrdersByType(String ordertype){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE ordertype = ?", new String[]{ordertype});
+        return cursor;
     }
 
     public Cursor getUserByName(String name){

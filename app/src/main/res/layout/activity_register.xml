@@ -38,7 +38,6 @@
 
     </LinearLayout>
 
-
     <EditText
         android:id="@+id/editName"
         android:layout_width="match_parent"
@@ -70,9 +69,8 @@
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:backgroundTint="#FFC300"
         android:textColor="@color/black"
         android:text="Register"/>
@@ -83,6 +81,5 @@
         android:layout_gravity="center"
         android:text="Already have account? Then Login Now"
         android:textColor="#FFFFFF"/>
-
 
 </LinearLayout>

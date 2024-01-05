@@ -52,34 +52,43 @@
         android:textColorHint="@color/white"
         android:layout_marginTop="15dp"/>
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Order Type"
-        android:textSize="15dp"
+        android:id="@+id/editType"
+        android:hint="Seller/ Buyer"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:layout_marginTop="15dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Order Type"-->
+<!--        android:textSize="15dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_marginTop="15dp"/>-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/buyBtn"
-            android:background="@drawable/button_color_change"
-            android:text="Want to Sell"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sellBtn"
-            android:background="@drawable/button_color_change1"
-            android:textColor="@color/black"
-            android:text="Want to Buy"/>
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_marginTop="20dp">-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/buyBtn"-->
+<!--            android:background="@drawable/button_color_change"-->
+<!--            android:text="Want to Sell"/>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/sellBtn"-->
+<!--            android:background="@drawable/button_color_change1"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:text="Want to Buy"/>-->
+<!--    </LinearLayout>-->
 
     <Button
         android:layout_width="match_parent"
@@ -88,9 +97,5 @@
         android:text="Place it On The Marketplace"
         android:layout_marginTop="320dp"
         android:background="#FFC300"/>
-
-
-
-
 
 </LinearLayout>

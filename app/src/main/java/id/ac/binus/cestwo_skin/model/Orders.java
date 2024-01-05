@@ -2,17 +2,20 @@ package id.ac.binus.cestwo_skin.model;
 
 public class Orders {
     private String skinName, skinPrice, skinPoster, skinSoB;
-    private int image, orderId;
+    private int orderId;
 
-    public Orders(String skinName, String skinPrice, String skinPoster, String skinSoB, int image, int orderId) {
+    public Orders( int orderId, String skinName, String skinPrice, String skinPoster, String skinSoB) {
+        this.orderId = orderId;
         this.skinName = skinName;
         this.skinPrice = skinPrice;
         this.skinPoster = skinPoster;
         this.skinSoB = skinSoB;
-        this.image = image;
-        this.orderId = orderId;
+//        this.image = image;
     }
 
+    public int getOrderId() {
+        return orderId;
+    }
     public String getSkinName() {
         return skinName;
     }
@@ -29,11 +32,7 @@ public class Orders {
         return skinSoB;
     }
 
-    public int getImage() {
-        return image;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
+//    public int getImage() {
+//        return image;
+//    }
 }

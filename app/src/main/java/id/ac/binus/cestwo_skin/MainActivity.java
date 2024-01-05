@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     if(checkuser){
                         Toast.makeText(MainActivity.this, "You have succesfully logged in", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                        intent.putExtra("name", name);
                         startActivity(intent);
                     }
                     else{
