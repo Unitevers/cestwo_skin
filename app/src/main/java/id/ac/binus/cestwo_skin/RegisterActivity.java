@@ -26,8 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText editCPassword;
     ImageButton button_back;
     Button registerButton;
-//    Button loginButton;
-//    CheckBox checkTnC;
+    Button loginButton;
+    CheckBox checkTnC;
 
     DatabaseHelper db;
     @Override
@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         button_back = findViewById(R.id.button_back);
         registerButton = findViewById(R.id.registerButton);
-//        checkTnC = findViewById(R.id.checkTnC);
+        checkTnC = findViewById(R.id.checkTnC);
         db = new DatabaseHelper(this);
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,18 +51,18 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-//        CheckBox checkBox = findViewById(R.id.checkTnC);
+        CheckBox checkBox = findViewById(R.id.checkTnC);
 
-//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //                if(isChecked)
-//                    Toast.makeText(RegisterActivity.this,"agreed",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(RegisterActivity.this,"",Toast.LENGTH_SHORT).show();
 //                else
 //                    Toast.makeText(RegisterActivity.this,"not Agreed",Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
+
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,29 +70,58 @@ public class RegisterActivity extends AppCompatActivity {
                 String name = editName.getText().toString();
                 String password = editPassword.getText().toString();
                 String cpassword = editCPassword.getText().toString();
-                if(name.equals("") || password.equals("") || cpassword.equals("")){
+                boolean isTnCChecked = checkTnC.isChecked();
+
+                if (name.equals("") || password.equals("") || cpassword.equals("")) {
                     Toast.makeText(RegisterActivity.this, "Must fill all the fields!", Toast.LENGTH_LONG).show();
-                }
-                else{
-                    if(password.equals(cpassword)) {
-                        boolean checkusername = db.checkname(name);
-                        if(checkusername == false){
-                            boolean isInsert = db.isInsertUser(name, password);
-                            if(isInsert){
-                                Toast.makeText(RegisterActivity.this, "User has succesfully been registered", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                startActivity(intent);
-                            } else{
-                                Toast.makeText(RegisterActivity.this, "User failed to be created", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                        else{
-                            Toast.makeText(RegisterActivity.this, "Name already exist!", Toast.LENGTH_LONG).show();
-                        }
-                    }else{
-                        Toast.makeText(RegisterActivity.this, "Password and confirm password must be the same!", Toast.LENGTH_LONG).show();
+                } else if (!password.equals(cpassword)) {
+                    Toast.makeText(RegisterActivity.this, "Password and confirm password must be the same!", Toast.LENGTH_LONG).show();
+                } else if (db.checkname(name)) {
+                    Toast.makeText(RegisterActivity.this, "Name already exists!", Toast.LENGTH_LONG).show();
+                } else if (!isTnCChecked) {
+                    Toast.makeText(RegisterActivity.this, "Terms and Condition need to be agreed", Toast.LENGTH_LONG).show();
+                } else {
+                    // All validations passed, proceed with user registration
+                    boolean isInsert = db.isInsertUser(name, password);
+                    if (isInsert) {
+                        Toast.makeText(RegisterActivity.this, "User has successfully been registered", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "User failed to be created", Toast.LENGTH_LONG).show();
                     }
                 }
+
+//                if(name.equals("") || password.equals("") || cpassword.equals("")){
+//                    Toast.makeText(RegisterActivity.this, "Must fill all the fields!", Toast.LENGTH_LONG).show();
+//                }
+//                else{
+//                    if(password.equals(cpassword)) {
+//                        boolean checkusername = db.checkname(name);
+                //                    boolean checkTnc = checkTnC.isChecked();
+//                    if(!checkTnc){
+//                        Toast.makeText(RegisterActivity.this, "Terms and Condition need to be agreed", Toast.LENGTH_LONG).show();
+//                        return;
+//                    }
+//                        if(checkusername == false){
+//                            boolean isInsert = db.isInsertUser(name, password);
+//                            if(isInsert){
+//                                Toast.makeText(RegisterActivity.this, "User has succesfully been registered", Toast.LENGTH_LONG).show();
+//                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+//                                startActivity(intent);
+//                            } else {
+//                                Toast.makeText(RegisterActivity.this, "User failed to be created", Toast.LENGTH_LONG).show();
+//                            }
+//                        }
+//                        else{
+//                            Toast.makeText(RegisterActivity.this, "Name already exist!", Toast.LENGTH_LONG).show();
+//                        }
+//                    }else{
+//                        Toast.makeText(RegisterActivity.this, "Password and confirm password must be the same!", Toast.LENGTH_LONG).show();
+//                    }
+
+//                }
+
             }
         });
 

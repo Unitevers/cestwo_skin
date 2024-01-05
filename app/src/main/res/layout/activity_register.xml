@@ -59,13 +59,13 @@
         android:hint="Confirm Password"
         android:textColor="@color/white"
         android:textColorHint="#FFFFFF"/>
-<!--    <CheckBox-->
-<!--        android:id="@+id/checkTnC"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="I have agreed to all Terms and Condition"-->
-<!--        android:textColor="@color/white"-->
-<!--        />-->
+    <CheckBox
+        android:id="@+id/checkTnC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I have agreed to all Terms and Condition"
+        android:textColor="@color/white"
+        />
 
     <Button
         android:id="@+id/registerButton"
