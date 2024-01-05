@@ -70,10 +70,10 @@ public class OrderActivity extends AppCompatActivity {
                 String itemPrice = editItemPrice.getText().toString();
                 String orderType = editOrderType.getText().toString();
 
-//                Intent pintent = getIntent();
-//                String sob = pintent.getStringExtra("sob");
-                boolean isInsertOrd = db.isInsertOrder(itemName, itemPrice, orderType, "andre");
-                if(isInsertOrd){
+                Intent pintent = getIntent();
+                String poster = pintent.getStringExtra("sob");
+                boolean isInsert = db.isInsertOrder(itemName, itemPrice, orderType, poster);
+                if(isInsert){
                     Toast.makeText(OrderActivity.this, "Order has been succesfully created", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(OrderActivity.this, HomeActivity.class);
                     startActivity(intent);

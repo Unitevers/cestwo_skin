@@ -56,10 +56,6 @@ public class RegisterActivity extends AppCompatActivity {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked)
-//                    Toast.makeText(RegisterActivity.this,"",Toast.LENGTH_SHORT).show();
-//                else
-//                    Toast.makeText(RegisterActivity.this,"not Agreed",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -92,36 +88,6 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }
 
-//                if(name.equals("") || password.equals("") || cpassword.equals("")){
-//                    Toast.makeText(RegisterActivity.this, "Must fill all the fields!", Toast.LENGTH_LONG).show();
-//                }
-//                else{
-//                    if(password.equals(cpassword)) {
-//                        boolean checkusername = db.checkname(name);
-                //                    boolean checkTnc = checkTnC.isChecked();
-//                    if(!checkTnc){
-//                        Toast.makeText(RegisterActivity.this, "Terms and Condition need to be agreed", Toast.LENGTH_LONG).show();
-//                        return;
-//                    }
-//                        if(checkusername == false){
-//                            boolean isInsert = db.isInsertUser(name, password);
-//                            if(isInsert){
-//                                Toast.makeText(RegisterActivity.this, "User has succesfully been registered", Toast.LENGTH_LONG).show();
-//                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-//                                startActivity(intent);
-//                            } else {
-//                                Toast.makeText(RegisterActivity.this, "User failed to be created", Toast.LENGTH_LONG).show();
-//                            }
-//                        }
-//                        else{
-//                            Toast.makeText(RegisterActivity.this, "Name already exist!", Toast.LENGTH_LONG).show();
-//                        }
-//                    }else{
-//                        Toast.makeText(RegisterActivity.this, "Password and confirm password must be the same!", Toast.LENGTH_LONG).show();
-//                    }
-
-//                }
-
             }
         });
 
@@ -144,16 +110,4 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
-
-//    public void onCheckboxClicked(View view){
-//        boolean checked = ((CheckBox) view).isChecked();
-//        switch(view.getId()){
-//            case R.id.checkTnC:
-//                if(checked)
-//                    Toast.makeText(this, "agreed", Toast.LENGTH_SHORT).show();
-//                else
-//                    Toast.makeText(this, "not agreed", Toast.LENGTH_SHORT).show();
-//                break;
-//        }
-//    }
 }

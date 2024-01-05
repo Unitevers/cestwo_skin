@@ -4,8 +4,8 @@ public class Orders {
     private String skinName, skinPrice, skinPoster, skinSoB;
     private int orderId;
 
-    public Orders( int orderId, String skinName, String skinPrice, String skinPoster, String skinSoB) {
-        this.orderId = orderId;
+    public Orders(String skinName, String skinPrice, String skinPoster, String skinSoB) {
+//        this.orderId = orderId;
         this.skinName = skinName;
         this.skinPrice = skinPrice;
         this.skinPoster = skinPoster;
