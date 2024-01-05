@@ -31,37 +31,20 @@ public class OrderActivity extends AppCompatActivity {
         editOrderType = findViewById(R.id.editType);
 
         button_back = findViewById(R.id.button_back);
-//        sellBtn = findViewById(R.id.sellBtn);
-//        buyBtn = findViewById(R.id.buyBtn);
         placeBtn = findViewById(R.id.placeBtn);
 
         db = new DatabaseHelper(this);
+        Intent pintent = getIntent();
+        String poster = pintent.getStringExtra("poster");
 
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OrderActivity.this, HomeActivity.class);
+                intent.putExtra("name", poster);
                 startActivity(intent);
             }
         });
-
-//        sellBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String sob = "Seller";
-//                sellBtn.setBackgroundResource(R.drawable.button_color_change);
-//                buyBtn.setBackgroundResource(R.drawable.button_color_change1);
-//            }
-//        });
-//
-//        buyBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String sob = "Buyer";
-//                buyBtn.setBackgroundResource(R.drawable.button_color_change);
-//                sellBtn.setBackgroundResource(R.drawable.button_color_change1);
-//            }
-//        });
 
         placeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,12 +53,11 @@ public class OrderActivity extends AppCompatActivity {
                 String itemPrice = editItemPrice.getText().toString();
                 String orderType = editOrderType.getText().toString();
 
-                Intent pintent = getIntent();
-                String poster = pintent.getStringExtra("sob");
                 boolean isInsert = db.isInsertOrder(itemName, itemPrice, orderType, poster);
                 if(isInsert){
                     Toast.makeText(OrderActivity.this, "Order has been succesfully created", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(OrderActivity.this, HomeActivity.class);
+                    intent.putExtra("name", poster);
                     startActivity(intent);
                 }
                 else{

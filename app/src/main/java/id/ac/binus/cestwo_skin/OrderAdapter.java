@@ -23,6 +23,8 @@ public class OrderAdapter extends ArrayAdapter<Orders> {
 
     public OrderAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Orders> objects) {
         super(context, resource, objects);
+        this.context = context;
+        this.resource = resource;
     }
 
     @NonNull
@@ -30,29 +32,29 @@ public class OrderAdapter extends ArrayAdapter<Orders> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         String name = getItem(position).getSkinName();
         String price = getItem(position).getSkinPrice();
+        String orderType = getItem(position).getSkinSoB();
         String poster = getItem(position).getSkinPoster();
-        String sob = getItem(position).getSkinSoB();
 
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(resource, parent, false);
 
         TextView txtNama = convertView.findViewById(R.id.txtName);
         TextView txtPrice = convertView.findViewById(R.id.txtPrice);
+        TextView txtOrderType = convertView.findViewById(R.id.txtOrderType);
         TextView txtPoster = convertView.findViewById(R.id.txtPoster);
-        TextView txtSoB = convertView.findViewById(R.id.txtOrderType);
-        Button btn = convertView.findViewById(R.id.placeBtn);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context.getApplicationContext(), "Trade request has been sent!", Toast.LENGTH_LONG).show();
-            }
-        });
+//        Button btn = convertView.findViewById(R.id.placeBtn);
 
         txtNama.setText(name);
         txtPrice.setText(price);
+        txtOrderType.setText(orderType);
         txtPoster.setText(poster);
-        txtSoB.setText(sob);
+
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context.getApplicationContext(), "Trade request has been sent!", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
         return convertView;
     }

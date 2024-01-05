@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     ListView lv;
     DatabaseHelper db;
     ImageButton orderButton;
+    Button sellBut, buyBut;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent pintent = getIntent();
         String name = pintent.getStringExtra("name");
+        String orderdefault = pintent.getStringExtra("ordertype");
 
         TextView nameText = findViewById(R.id.userName);
 
@@ -45,10 +48,33 @@ public class HomeActivity extends AppCompatActivity {
 
         db = new DatabaseHelper(this);
         lv = findViewById(R.id.lvData);
-        Cursor cursor = db.getOrdersByType("Seller");
+        Cursor cursor = db.getOrdersByType(orderdefault);
         StringBuffer buffer = new StringBuffer();
 
-        ArrayList<Orders> orderList = new ArrayList<Orders>();
+        ArrayList<Orders> orderList = new ArrayList<>();
+
+        sellBut = findViewById(R.id.sellerButton);
+        sellBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("ordertype", "Seller");
+                startActivity(intent);
+            }
+        });
+
+        buyBut = findViewById(R.id.buyerButton);
+
+        buyBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("ordertype", "Buyer");
+                startActivity(intent);
+            }
+        });
 
         while (cursor.moveToNext()) {
             String ordername = cursor.getString(1);
@@ -62,5 +88,12 @@ public class HomeActivity extends AppCompatActivity {
         OrderAdapter ordAdapter = new OrderAdapter(this, R.layout.activity_categorylist_adapter, orderList);
 
         lv.setAdapter(ordAdapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(HomeActivity.this, "Trade request has been sent to user!", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

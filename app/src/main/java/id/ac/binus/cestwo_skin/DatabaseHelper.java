@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(@Nullable Context context){
-        super(context, "test", null, 1);
+        super(context, "cestwo", null, 1);
     }
 
     @Override
@@ -84,30 +84,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getUserByName(String name){
+    public Cursor getOrders(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("Select * from user WHERE name = ?", new String[]{name});
+        Cursor cursor = db.rawQuery("SELECT * FROM orders", null);
         return cursor;
     }
-
-//    public boolean updateData(String name, String password, String email){
-//        SQLiteDatabase db =this.getWritableDatabase();
-//
-//        ContentValues contentValues =new ContentValues();
-//        contentValues.put("name", name);
-//        contentValues.put("email", email);
-//        contentValues.put("password", password);
-//
-//        Cursor cursor =db.rawQuery("SELECT * FROM user where name = ?", new String[]{name});
-//        if(cursor.getCount() > 0){
-//            long result = db.update("user", contentValues, "name = ?", new String[] {name});
-//            if(result <= 0)
-//                return false;
-//            else
-//                return true;
-//        }
-//        return false;
-//    }
 
     public boolean deleteData(String name){
         SQLiteDatabase db = this.getWritableDatabase();

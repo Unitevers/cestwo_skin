@@ -1,10 +1,10 @@
 package id.ac.binus.cestwo_skin.model;
 
 public class Orders {
-    private String skinName, skinPrice, skinPoster, skinSoB;
     private int orderId;
+    private String skinName, skinPrice, skinPoster, skinSoB;
 
-    public Orders(String skinName, String skinPrice, String skinPoster, String skinSoB) {
+    public Orders(String skinName, String skinPrice, String skinSoB, String skinPoster) {
 //        this.orderId = orderId;
         this.skinName = skinName;
         this.skinPrice = skinPrice;

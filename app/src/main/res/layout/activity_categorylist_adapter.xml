@@ -3,29 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E2328"
-    android:padding="10dp"
+    android:padding="20dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="100dp" />
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="contoh nama"/>
+            android:textColor="@color/white"
+            android:text="contoh nama"/>
 
             <Button
                 android:id="@+id/buyButton"
@@ -36,12 +27,24 @@
                 android:text="Buy"
                 android:background="#FFC300"/>
 
-            <TextView
-                android:id="@+id/txtPrice"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#FFC300"
-                android:text="contoh harga"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFC300"
+                    android:text="Rp. "/>
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFC300"
+                    android:text="contoh harga"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -55,16 +58,20 @@
                     android:text="Contoh"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#7B7B7B"
+                    android:text=": "/>
+
+                <TextView
                     android:id="@+id/txtPoster"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#7B7B7B"
-                    android:text=" Contoh Nama"/>
+                    android:text="Contoh Nama"/>
 
             </LinearLayout>
 
         </LinearLayout>
-    </LinearLayout>
-
 
 </LinearLayout>

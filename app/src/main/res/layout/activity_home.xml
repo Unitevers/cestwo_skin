@@ -43,6 +43,12 @@
             android:layout_gravity="right" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#F5B301"
+        android:layout_marginBottom="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,6 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Order Type"
+            android:layout_marginBottom="5dp"
             android:textColor="@color/white"
             />
 
@@ -61,20 +68,22 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/sellerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#F5B301"
                 android:layout_weight="1"
+                android:layout_margin="2dp"
                 android:text="Seller"/>
 
             <Button
+                android:id="@+id/buyerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#F5B301"
                 android:layout_weight="1"
+                android:layout_margin="2dp"
                 android:text="Buyer"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 
