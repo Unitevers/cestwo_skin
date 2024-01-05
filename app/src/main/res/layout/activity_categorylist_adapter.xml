@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -23,8 +23,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="30dp"
-                android:minWidth="50dp"
-                android:text="Buy"
+                android:minWidth="160dp"
+                android:focusable="false"
+                android:text="Send Trade request"
                 android:background="#FFC300"/>
 
             <LinearLayout
