@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(@Nullable Context context){
-        super(context, "pengguna", null, 1);
+        super(context, "test", null, 1);
     }
 
     @Override
@@ -20,9 +20,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "password text)");
 
         db.execSQL("CREATE TABLE orders (" +
-                "id integer PRIMARY KEY AUTOINCREMENT," +
-                "name text," +
-                "price text," +
+                "orderid integer PRIMARY KEY AUTOINCREMENT," +
+                "ordername text," +
+                "orderprice text," +
                 "ordertype text," +
                 "poster text)");
     }
@@ -48,9 +48,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean isInsertOrder(String itemName, String itemPrice, String ordertype, String poster){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues content = new ContentValues();
-        content.put("id", 0);
-        content.put("name", itemName);
-        content.put("price", itemPrice);
+        content.put("ordername", itemName);
+        content.put("orderprice", itemPrice);
         content.put("ordertype", ordertype);
         content.put("poster", poster);
 
