@@ -16,7 +16,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE user (" +
-                "name text PRIMARY KEY," +
+                "email text PRIMARY KEY," +
+                "name text," +
                 "password text)");
 
         db.execSQL("CREATE TABLE orders (" +
@@ -32,9 +33,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean isInsertUser(String name, String password){
+    public boolean isInsertUser(String name, String email, String password){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues content= new ContentValues();
+        content.put("email", email);
         content.put("name", name);
         content.put("password", password);
 
@@ -59,19 +61,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return true;
     }
-
-    public boolean checkname(String name){
+    public boolean checkemail(String email){
         SQLiteDatabase db =this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE name = ?", new String[]{name});
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email = ?", new String[]{email});
         if(cursor.getCount() > 0){
             return true;
         }
         return false;
     }
 
-    public boolean checknamepassword(String name, String password){
+    public boolean checkemailpassword(String email, String password){
         SQLiteDatabase db =this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE name = ? AND password = ?", new String[]{name, password});
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{email, password});
         if(cursor.getCount() > 0){
             return true;
         }
@@ -82,22 +83,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM orders WHERE ordertype = ?", new String[]{ordertype});
         return cursor;
-    }
-
-    public Cursor getOrders(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM orders", null);
-        return cursor;
-    }
-
-    public boolean deleteData(String name){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        Cursor cursor =db.rawQuery("SELECT * FROM user where name = ?", new String[]{name});
-        if(cursor.getCount() > 0){
-            long result = db.delete("user", "name = ?", new String[]{name});
-            return result > 0;
-        }
-        return false;
     }
 }

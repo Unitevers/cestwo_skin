@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.SpannableString;
@@ -18,7 +19,7 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-    EditText editName;
+    EditText editEmail;
     EditText editPassword;
     Button loginButton;
     DatabaseHelper db;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editName = findViewById(R.id.logName);
+        editEmail = findViewById(R.id.logEmail);
         editPassword = findViewById(R.id.logPassword);
         loginButton = findViewById(R.id.loginButton);
 
@@ -52,18 +53,18 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = editName.getText().toString();
+                String email = editEmail.getText().toString();
                 String password = editPassword.getText().toString();
 
-                if(name.equals("") || password.equals("")) {
+                if(email.equals("") || password.equals("")) {
                     Toast.makeText(MainActivity.this, "Must fill all the fields!", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    boolean checkuser = db.checknamepassword(name, password);
+                    boolean checkuser = db.checkemailpassword(email, password);
                     if(checkuser){
                         Toast.makeText(MainActivity.this, "You have succesfully logged in", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                        intent.putExtra("name", name);
+                        intent.putExtra("name", email);
                         intent.putExtra("ordertype", "Seller");
                         startActivity(intent);
                     }

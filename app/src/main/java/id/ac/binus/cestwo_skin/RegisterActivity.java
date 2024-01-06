@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText editName;
+    EditText editEmail;
     EditText editPassword;
     EditText editCPassword;
     ImageButton button_back;
@@ -35,7 +36,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        editName =findViewById(R.id.editName);
+        editName = findViewById(R.id.editName);
+        editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
         editCPassword = findViewById(R.id.editCPassword);
 
@@ -64,21 +66,23 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = editName.getText().toString();
+                String email = editEmail.getText().toString();
                 String password = editPassword.getText().toString();
                 String cpassword = editCPassword.getText().toString();
                 boolean isTnCChecked = checkTnC.isChecked();
 
-                if (name.equals("") || password.equals("") || cpassword.equals("")) {
+                if (name.equals("") || email.equals("") || password.equals("") || cpassword.equals("")) {
                     Toast.makeText(RegisterActivity.this, "Must fill all the fields!", Toast.LENGTH_LONG).show();
                 } else if (!password.equals(cpassword)) {
                     Toast.makeText(RegisterActivity.this, "Password and confirm password must be the same!", Toast.LENGTH_LONG).show();
-                } else if (db.checkname(name)) {
-                    Toast.makeText(RegisterActivity.this, "Name already exists!", Toast.LENGTH_LONG).show();
-                } else if (!isTnCChecked) {
+                } else if (db.checkemail(email)) {
+                    Toast.makeText(RegisterActivity.this, "Email already exists!", Toast.LENGTH_LONG).show();
+                }
+                 else if (!isTnCChecked) {
                     Toast.makeText(RegisterActivity.this, "Terms and Condition need to be agreed", Toast.LENGTH_LONG).show();
                 } else {
                     // All validations passed, proceed with user registration
-                    boolean isInsert = db.isInsertUser(name, password);
+                    boolean isInsert = db.isInsertUser(name, email, password);
                     if (isInsert) {
                         Toast.makeText(RegisterActivity.this, "User has successfully been registered", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);

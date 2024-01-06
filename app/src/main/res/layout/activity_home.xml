@@ -17,7 +17,6 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="170dp"
             android:orientation="vertical">
 
             <TextView
@@ -34,13 +33,18 @@
                 android:textColor="@color/white" />
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/placeBtn"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:background="@drawable/placeorderbutton"
-            android:layout_gravity="right" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <ImageButton
+                android:id="@+id/placeBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/placeorderbutton" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <View
@@ -84,6 +88,7 @@
                 android:layout_weight="1"
                 android:layout_margin="2dp"
                 android:text="Buyer"/>
+
         </LinearLayout>
     </LinearLayout>
 
@@ -91,47 +96,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/lvData"/>
-
-<!--    <ImageView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:background="@drawable/posternew"/>-->
-
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Category"-->
-<!--        android:paddingTop="10dp"-->
-<!--        android:textColor="@color/white"/>-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal">-->
-
-<!--        <ImageButton-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="130dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/primarybutton"-->
-<!--            android:id="@+id/primaryBut"/>-->
-
-<!--        <ImageButton-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="130dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/secondarybutton"-->
-<!--            android:id="@+id/secondaryBut"/>-->
-
-<!--        <ImageButton-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="130dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/knifebutton"-->
-<!--            android:id="@+id/knifeBut"/>-->
-
-<!--    </LinearLayout>-->
-
-
 
 </LinearLayout>
